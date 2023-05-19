@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+     <meta charset="UTF-8">
+     <title>能力展示 - 素材诊断</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+     <meta name="theme-color" content="#000000" />
+
+     <style data-jss="" data-meta="MuiSvgIcon"></style>
+     <link rel="stylesheet" href="/static/botong_style.css" />
+     <link rel="stylesheet" href="/static/ad_analysis.css" />
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+ </head>
+<body>
+<div id="root" class="app">
+<div class="title_1">
+                    <div class="title_box_2">
+
+                        <img aria-current="page" class="image_title" href="/"><img alt="Logo" src="/static/images/botong.svg" style="height: 64px; padding-top: 10px;" /></img>
+
+                        <a id="main_page" aria-current="page" class="text_title_deactive active" href="/" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             首页
+                            </div></a>
+                        <a id="chat" aria-current="page" class="text_title_deactive active" href="/chat" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             对话模型
+                            </div></a>
+                        <a id="tools" aria-current="page" class="text_title_active active" href="/ad" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             工具箱
+                            </div></a>
+                    </div>
+                </div>
+</div>
+<div class="main_box1" id="rootContainer">
+ <div class="main_box2">
+  <div class="main_box3">
+   <div class="main_box4">
+
+<!--我需要在html页面中增加一个设置模块，整个模块横向占据整个宽度，随着设置内容的变化，纵向高度会变化。包含内容如下:
+1. 首先模块标题，内容是"Demo"，在左上角，尽量醒目
+2. 接下来是输入栏，输入栏整体有边框，浅色背景，柔和，包含多行，每一个输入选项分为标题和输入/选择栏，标题在左，设置栏在右，需要列对齐。其中第一行标题为
+"输入素材文案"，对应输入栏，宽度对齐到右边栏，支持多行，如果有多行则自动调整高度。第二行标题为"游戏名称"，对应输入栏。
+第三行标题为"游戏介绍"，对应输入栏，支持多行。第四行为"渠道选择"，对应单选下拉框，下拉选项包括"不指定渠道"、"微信公众号"
+、"微信红点"、"qq公众号"、"qq红点"。第五行为"文案目的"，对应输入栏，支持多行。第六行为"字数限制"，对应输入栏。
+3. 接下来是一个按钮，"确定"
+4. 接下来是结果栏，整体有边框，浅色背景，柔和，用户点击确定后，根据服务返回结果生成。生成结果可能为动态条数，每一条结果包含标题和正文，正文可能为多行。标题单独一行，正文和标题间没有空行，不同条结果之间有空行。
+请你同时生成按下结果后调用服务然后在前端动态显示结果的js代码。以上配置涉及的画面设置都通过css配置。-->
+<!--       点击确定后执行以下操作，根据设置框的内容，得到dict变量input，包含字段 素材文案、游戏名称、游戏介绍、渠道选择、文案目的、字数限制。将该变量发送给服务“ad_analysis”。然后提取结果为dict变量result，包含未知数量的数据。result中每一个key value的组合将会在前端展示为一条结果，key作为标题，value作为正文。请你给出js实现这个功能，并且相应修改html代码以支持结果的动态显示-->
+<!--                </div>-->
+    <div>
+<!--        这是主要页面box-->
+     <div class="tool_box">
+      <div class="empty_box" style="height: 25px;"></div>
+         <!--         以下是功能介绍box-->
+       <div class="empty_box">
+        <div class="intro_box" bgcolor="background.paper" m="1" border="2">
+                    <div class="inner_intro_box1">
+                     <div class="inner_intro_box2">
+                      <div class="empty_border">
+                       <div class="empty_border">
+                        <h2 class="intro_title" >素材文案效果预估</h2>
+                       </div>
+                      <div class="inner_intro_box3" style="padding-top: 1rem;">
+                       <div class="empty_border" style="width: 72%; color: #000000;">
+                        <section>
+                         <div>
+                          <span>本功能主要用于文案生成或者文案诊断，当输入待诊断文案时，则系统会优先进行文案诊断，分析文案的优点缺点和改进意见。如果不输入文案，则请输入游戏名（必须）和相关介绍（可选），系统会提供一些参考文案。</span>
+                         </div>
+                        </section>
+                       </div>
+                       <div class="" style="width: 3%;"></div>
+                       <div class="" style="width: 25%;">
+                        <div class="">
+                         <div class="" style="border: 1px dashed gray; padding: 10px;">
+                          <div class="intro_info_box1">
+                           <div class=" intro_info_box2"> <!--创作时间-->
+                            <div class=" intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>创建时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--优化时间-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>优化时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--作者（联系方式）-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>联系人</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">easingliu（企业微信）</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--相关介绍连接-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>相关介绍</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text"></span>
+                            </div>
+                           </div>
+                          </div>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+       </div>
+<!--         以下是功能使用box-->
+       <div class="tool_box" style="margin-top: 20px;">
+           <div class="settings-module">
+  <h1 class="module-title">Demo</h1>
+  <div class="inputs">
+    <div class="input-group">
+      <label for="material">输入素材文案（输入文案则进行文案诊断，如果没有输入素材则按照给定游戏信息进行文案推荐）</label>
+      <textarea id="material"></textarea>
+    </div>
+    <div class="input-group">
+      <label for="game-name">游戏名称（若输入素材文案为空，则必填）</label>
+      <input type="text" id="game-name">
+    </div>
+    <div class="input-group">
+      <label for="game-intro">游戏介绍</label>
+      <textarea id="game-intro"></textarea>
+    </div>
+    <div class="input-group">
+      <label for="channel">渠道选择</label>
+      <select id="channel">
+        <option value="other">不指定渠道</option>
+        <option value="wx_gzh">微信公众号</option>
+        <option value="wx_red">微信红点</option>
+        <option value="qq_gzh">qq公众号</option>
+        <option value="qq_red">qq红点</option>
+      </select>
+    </div>
+    <div class="input-group">
+      <label for="purpose">文案目的（此处可尽量全面的输入广告营销目的，希望强调的游戏重点等）</label>
+      <textarea id="purpose"></textarea>
+    </div>
+    <div class="input-group">
+      <label for="word-count">字数限制</label>
+      <input type="number" id="word-count">
+    </div>
+  </div>
+    <div class="confirm_button_container">
+      <button id="confirm-btn" class="confirm-btn">确定</button>
+      <div class="button_text">分析过程可能需要20秒左右，请耐心等待</div>
+    </div>
+<!--  <button id="confirm-btn">确定</button>-->
+  <div class="results"></div>
+  <div id="results-container"></div>
+</div>
+<!--        <div class="empty_box">-->
+<!--         <div style="font-size: 24px; margin-bottom: 10px; display: flex;">-->
+<!--          <div style="text-align: left; display: inline-block;">-->
+<!--           <div class="jss53">-->
+<!--            <div class="jss54">-->
+<!--             <div class=" jss58 jss55 jss57 jss56">-->
+<!--              <a href="/api/smartquery/demo" style="color: inherit;"><span>Demo</span></a>-->
+<!--             </div>-->
+<!--&lt;!&ndash;                       <div class=" jss59 jss55">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <a href="/api/smartquery/doc" style="color: inherit;"><span>接口文档</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                       </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                       <div class=" jss60 jss55">&ndash;&gt;-->
+<!--&lt;!&ndash;                        <a href="/api/smartquery/stat" style="color: inherit;"><span>统计信息</span></a>&ndash;&gt;-->
+<!--&lt;!&ndash;                       </div>&ndash;&gt;-->
+<!--                      </div>-->
+<!--                     </div>-->
+<!--                    </div>-->
+<!--                    <div class=" jss61"></div>-->
+<!--                    <div class=" jss62">-->
+<!--                     <div class=" jss63"></div>-->
+<!--                     <div class=" jss64"></div>-->
+<!--                     <div class=" jss65"></div>-->
+<!--                    </div>-->
+<!--                   </div>-->
+<!--                  </div>-->
+<!--                  <div class=" MuiGrid-item MuiGrid-grid-xs-6">-->
+<!--                   <div class="MuiPaper-root jss28 MuiPaper-elevation5 MuiPaper-rounded" bgcolor="background.paper" m="1" border="2" style="margin: 10px;">-->
+<!--                    <div>-->
+<!--                        <div class="MuiFormControl-root" style="width: 100%;">&lt;!&ndash;待处理文案&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div>&ndash;&gt;-->
+<!--                            <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink" data-shrink="true">输入待处理 (可选)</label>-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+
+<!--                        </div>-->
+<!--                        <div class="MuiFormControl-root" style="width: 100%;">&lt;!&ndash;待处理文案&ndash;&gt;-->
+<!--                            <div class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-formControl MuiInput-formControl">-->
+<!--                                <textarea aria-invalid="false"  class="MuiInputBase-input MuiInput-input" value="山东鲁能与江苏苏宁会师足协杯决赛#微信运动时刻 " ></textarea>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="MuiFormControl-root" style="width: 100%;">&lt;!&ndash;待处理文案&ndash;&gt;-->
+<!--                            <label class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink" data-shrink="true">选择渠道</label>-->
+<!--                            <div class="MuiInputBase-root MuiInput-root MuiInputBase-formControl MuiInput-formControl">-->
+<!--                                <select style="font-size: 24px; width: 300px; height: 40px;">-->
+<!--                                  <option value="option1">不指定渠道</option>-->
+<!--                                  <option value="option1">微信公众号</option>-->
+<!--                                  <option value="option2">微信红点</option>-->
+<!--                                  <option value="option3">qq公众号</option>-->
+<!--                                  <option value="option3">qq红点</option>-->
+<!--                                </select>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                   </div>-->
+<!--                  </div>-->
+<!--                  <div class=" MuiGrid-item MuiGrid-grid-xs-6">-->
+<!--                   <div class="MuiPaper-root jss28 MuiPaper-elevation5 MuiPaper-rounded" bgcolor="background.paper" m="1" border="2" style="margin: 10px;">-->
+<!--                    <div class="MuiPaper-root MuiAccordion-root w-full Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded">-->
+<!--                     <div class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded" tabindex="0" role="button" aria-disabled="false" aria-expanded="true" aria-controls="result">-->
+<!--                      <div class="MuiAccordionSummary-content Mui-expanded">-->
+<!--                       <p class="MuiTypography-root jss70 MuiTypography-body1"></p>-->
+<!--                       <div class=" jss77">-->
+<!--                        结果-->
+<!--                       </div>-->
+<!--                       <p></p>-->
+<!--                      </div>-->
+<!--                      <div class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd" aria-disabled="false" aria-hidden="true">-->
+<!--                       <span class="MuiIconButton-label">-->
+<!--                        <svg class="MuiSvgIcon-root" focusable="false" viewbox="0 0 24 24" aria-hidden="true">-->
+<!--                         <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>-->
+<!--                        </svg></span>-->
+<!--                       <span class="MuiTouchRipple-root"></span>-->
+<!--                      </div>-->
+<!--                     </div>-->
+<!--                     <div class="MuiCollapse-root MuiCollapse-entered" style="min-height: 0px;">-->
+<!--                      <div class="MuiCollapse-wrapper">-->
+<!--                       <div class="MuiCollapse-wrapperInner">-->
+<!--                        <div id="result" role="region">-->
+<!--                         <div class="MuiAccordionDetails-root" style="display: flex;"></div>-->
+<!--                        </div>-->
+<!--                       </div>-->
+<!--                      </div>-->
+<!--                     </div>-->
+<!--                    </div>-->
+<!--                    <div class="MuiPaper-root MuiAccordion-root w-full MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded">-->
+<!--                     <div class="MuiButtonBase-root MuiAccordionSummary-root" tabindex="0" role="button" aria-disabled="false" aria-expanded="false" aria-controls="raw">-->
+<!--                      <div class="MuiAccordionSummary-content">-->
+<!--                       <p class="MuiTypography-root jss70 MuiTypography-body1"></p>-->
+<!--                       <div class=" jss71">-->
+<!--                        原始响应-->
+<!--                       </div>-->
+<!--                       <p></p>-->
+<!--                      </div>-->
+<!--                      <div class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd" aria-disabled="false" aria-hidden="true">-->
+<!--                       <span class="MuiIconButton-label">-->
+<!--                        <svg class="MuiSvgIcon-root" focusable="false" viewbox="0 0 24 24" aria-hidden="true">-->
+<!--                         <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>-->
+<!--                        </svg></span>-->
+<!--                       <span class="MuiTouchRipple-root"></span>-->
+<!--                      </div>-->
+<!--                     </div>-->
+<!--                     <div class="MuiCollapse-root MuiCollapse-hidden" style="min-height: 0px;">-->
+<!--                      <div class="MuiCollapse-wrapper">-->
+<!--                       <div class="MuiCollapse-wrapperInner">-->
+<!--                        <div id="raw" role="region">-->
+<!--                         <div class="MuiAccordionDetails-root">-->
+<!--                          <div class=" jss72">-->
+<!--                           <label class="MuiFormControlLabel-root"><span class="MuiSwitch-root MuiSwitch-sizeSmall"><span class="MuiButtonBase-root MuiIconButton-root jss73 MuiSwitch-switchBase MuiSwitch-colorPrimary jss74 Mui-checked" aria-disabled="false"><span class="MuiIconButton-label"><input class="jss76 MuiSwitch-input" type="checkbox" value="" checked="" /><span class="MuiSwitch-thumb"></span></span><span class="MuiTouchRipple-root"></span></span><span class="MuiSwitch-track"></span></span><span class="MuiTypography-root MuiFormControlLabel-label MuiTypography-body1">格式化</span></label>-->
+<!--                           <br />-->
+<!--                           <pre style="text-align: left; white-space: break-spaces; width: 100%; word-break: break-all;">{-->
+<!--          &quot;dim_info&quot;: [],-->
+<!--          &quot;query_id&quot;: &quot;&quot;,-->
+<!--          &quot;ret_code&quot;: 0,-->
+<!--          &quot;ret_desc&quot;: &quot;&quot;,-->
+<!--          &quot;tag&quot;: []-->
+<!--        }</pre>-->
+<!--                          </div>-->
+<!--                         </div>-->
+<!--                        </div>-->
+<!--                       </div>-->
+<!--                      </div>-->
+<!--                     </div>-->
+<!--                    </div>-->
+<!--                   </div>-->
+<!--                  </div>-->
+                 </div>
+       </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<script src="/static/ad_tools_api.js"></script>
+</body>
+
+</html>

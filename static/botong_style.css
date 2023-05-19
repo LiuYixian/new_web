@@ -1,0 +1,254 @@
+.MuiPaper-root {
+  color: #323232;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: rgba(251, 251, 251, 0.95);
+}
+
+
+.title_box_1 {
+  color: #323232;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: rgba(251, 251, 251, 0.95);
+  width: 100%;
+  display: flex;
+  z-index: 1100;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  flex-direction: column;
+  top: 0;
+  left: auto;
+  right: 0;
+  position: fixed;
+  box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);
+}
+
+.title_box_2 {
+    display: flex;
+  flex-direction: row;
+  /*align-items: center;*/
+  position: relative;
+
+  font-size: 14px;
+  min-height: 72px;
+  margin-left: 16px; /*内距*/
+  padding-left: 16px; /*外距*/
+  padding-right: 16px;
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.08), 0 16px 24px 2px rgba(0, 0, 0, 0.04), 0 6px 30px 5px rgba(0, 0, 0, 0.05);
+}
+
+.image_title {
+  color: #0052D9;
+  margin: 0px 0px;
+  display: inline-block;
+  padding: 0px;
+  font-size: 32px;
+  min-width: 128px;
+  text-align: left;
+  font-family: TencentSansW7;
+  font-weight: bold;
+  margin-left: 5%;
+  padding-left: 0;
+}
+.image_title:visited {
+  color: #0052D9;
+}
+.image_title:hover {
+  color: #0052D9;
+}
+.image_title:active {
+  color: #0052D9;
+}
+
+.text_title_active {
+
+  color: #0052d9;
+  border-bottom: 2px solid #0052d9;
+  font-size: 20px;
+  height: 72px;
+  display: flex;
+
+
+  /*color: rgba(0, 0, 0, 0.6);*/
+
+}
+.text_title_deactive {
+
+  /*color: #0052d9;*/
+  border-bottom: 2px solid #0052d9;
+  font-size: 20px;
+  height: 72px;
+  display: flex;
+
+
+  color: rgba(0, 0, 0, 0.6);
+
+}
+/*jss1*/
+.main_box1{
+    display: flex;
+  overflow: hidden;
+  max-width: 1500px;
+  min-height: calc(100vh - 200px);
+  margin-left: auto;
+  margin-right: auto;
+}
+/*jss2*/
+.main_box2{
+    flex: 1 1 auto;
+  display: flex;
+  overflow: hidden;
+  padding-top: 72px;
+}
+/*jss3*/
+.main_box3{
+    flex: 1 1 auto;
+  display: flex;
+  overflow: hidden;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+/*jss4*/
+.main_box4{
+  flex: 1 1 auto;
+  height: auto;
+  overflow: hidden;
+}
+
+
+.block_box1{
+    border: 2px dashed #ddd;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/*MuiGrid-root MuiGrid-container MuiGrid-align-items-xs-flex-start MuiGrid-justify-content-xs-center*/
+.tool_box{
+    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-items: flex-start;
+  justify-content: center;
+  /*border: 1px solid red;*/
+}
+
+/*MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12*/
+.empty_box{
+    margin: 0;
+  box-sizing: border-box;
+    flex-grow: 0;
+  max-width: 100%;
+  flex-basis: 100%;
+  /*border: 1px solid red;*/
+}
+/*MuiPaper-root jss28 MuiPaper-elevation5 MuiPaper-rounded*/
+.intro_box{
+    color: #323232;
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  background-color: rgba(251, 251, 251, 0.95);
+    color: #808080;
+  height: auto;
+  padding: 16px;
+  text-align: left;
+  box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2),0px 5px 8px 0px rgba(0,0,0,0.14),0px 1px 14px 0px rgba(0,0,0,0.12);
+  border-radius: 4px;
+  /*border: 1px solid red;*/
+}
+/*jss31*/
+.inner_intro_box1{
+    display: flex;
+  text-align: left;
+  align-content: flex-end;
+  flex-direction: row;
+  /*border: 1px solid red;*/
+}
+
+/*jss32*/
+.inner_intro_box2{
+  flex-grow: 100;
+  padding-right: 20px;
+
+
+}
+
+.inner_intro_box3{
+  /*border: 1px solid red;*/
+      display: flex;  /* 使用Flexbox布局 */
+    flex-direction: row;  /* 设置主轴方向为横向 */
+}
+/*MuiTypography-root jss34 MuiTypography-h2*/
+.intro_title{
+  /*margin: 0;*/
+    color: #000000;
+  margin: 0 0 8px 0;
+  padding: 0;
+  font-size: 28px;
+  /*font-size: 3.75rem;*/
+  font-weight: bold;
+  /*font-weight: 300;*/
+  line-height: 42px;
+  /*line-height: 1.2;*/
+
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
+
+  letter-spacing: -0.00833em;
+  /*border: 1px solid red;*/
+}
+/*MuiGrid-container MuiGrid-spacing-xs-1*/
+.intro_info_box1{
+    /*width: 100%;*/
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+    width: calc(100% + 8px);
+  /*margin: -4px;*/
+}
+/*MuiGrid-container*/
+.intro_info_box2{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+/*MuiGrid-item MuiGrid-grid-xs-4*/
+.intro_info_title{
+    margin: 0;
+  box-sizing: border-box;
+    flex-grow: 0;
+  max-width: 33.333333%;
+  flex-basis: 33.333333%;
+}
+/*MuiGrid-item MuiGrid-grid-xs-8*/
+.intro_info_detail{
+    margin: 0;
+  box-sizing: border-box;
+    flex-grow: 0;
+  max-width: 66.666667%;
+  flex-basis: 66.666667%;
+}
+/*MuiTypography-root MuiTypography-caption*/
+.intro_info_text{
+  margin: 0;
+    font-size: 0.85rem;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-weight: 400;
+  line-height: 1.66;
+  letter-spacing: 0.03333em;
+}
+
+.empty_border{
+  /*border: 1px solid red;*/
+}
+
+.settings-module {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.module-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}

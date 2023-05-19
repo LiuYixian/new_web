@@ -1,0 +1,293 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+.chat-window {
+	height: 80%;
+	max-height: 80%;
+	max-width: 80%;
+	min-width: 80%;
+	margin: 0 auto;
+	background-color: #F7F7F7;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.input-wrapper {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px;
+	background-color: white;
+}
+
+input[type=text] {
+	flex-basis: 80%;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 30px;
+	background-color: #D5F5E3;
+	font-size: 16px;
+	color: #333;
+}
+
+textarea {
+  width: 90%;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+	background-color: #D5F5E3;
+  border-radius: 5px;
+  resize: none; /* 禁用默认的 textarea 输入框缩放 */
+  height: auto; /* 需要设置为 'auto'，以便根据 rows 属性的值自适应高度 */
+	/*min-height: 1.2em;*/
+}
+/*.textarea {*/
+/*  width: 90%;*/
+/*  resize: none;*/
+/*  height: auto;*/
+/*  white-space: pre-wrap; !* 允许文本自动换行 *!*/
+/*}*/
+
+
+#send-btn {
+	height: 60px;
+	flex-basis: 13%;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 10px;
+	background-color: #00AEEF;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+    margin-left: 10px;
+}
+
+.messages {
+	flex: 1;
+	padding: 20px;
+	overflow-y: scroll;
+	min-height: 300px;
+}
+
+.user-message {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-end;
+	margin-bottom: 10px;
+}
+
+
+
+.user-message p {
+	background-color: #00AEEF;
+	align-self: flex-end;
+}
+
+
+/* 动态文本框容器 */
+.response-text-box {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  max-width: 80%;
+  min-width: 0%;
+	width: fit-content;
+  height: auto;
+	min-height: 1.5em;
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: black;
+  background-color: #D5F5E3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  overflow-x: hidden;
+  overflow-y: auto;
+	white-space: pre-line;
+}
+
+/* 容器中的段落 */
+.response-text-box p {
+  /*margin: 0;*/
+  /*padding: 6px 8px;*/
+  /*border-radius: 4px;*/
+  background-color: #0084FF;
+	align-self: flex-start;
+  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+}
+
+.user-message p,  .response-text-box p{
+	font-size: 16px;
+	padding: 10px;
+	margin: 0;
+	color: white;
+	border-radius: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+td {
+  padding: 5px;
+  border: solid 1px #ccc;
+}
+
+
+
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+
+
+.config-group {
+  background-color: #fff;
+  border: solid 1px #c8c8c8;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  min-height: 300px;
+  padding: 20px;
+}
+
+.config-group h3 {
+  color: #333;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.ms-TextField-field,
+textarea_config {
+  background-color: #f5f2f0;
+  border: none;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #333;
+  font-size: 14px;
+  padding: 8px;
+    height: auto;
+  /*resize: vertical;*/
+    overflow: auto;
+  transition: all .2s ease-in-out;
+  width: 100%;
+	margin-right: 10px;
+    display: flex;
+	resize: none; /* 禁止用户手动改变大小 */
+}
+
+.ms-TextField:hover .ms-TextField-field,
+.ms-TextField:focus .ms-TextField-field,
+textarea_config:hover,
+textarea_config:focus {
+  background-color: #f4f4f4;
+  border: solid 1px #0078d7;
+  outline: none;
+}
+
+
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-group label {
+  flex-basis: 60px;
+}
+
+.input-group input[type=text] {
+  display: inline-block;
+  flex-basis: calc(100% - 60px);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.label-container label {
+  margin-right: 5px;
+}
+
+.form-group,
+.input-group
+.config-group {
+  height: auto !important;
+}
+		.container {
+            margin-top: 30px;
+			display: flex;
+			flex-direction: column;
+			height: auto;
+			margin-bottom: 30px;
+		}
+
+		.row_box {
+			display: flex;
+			flex-direction: row;
+			height: auto;
+		}
+
+		.column_box {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		.mid {
+			flex: 1;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+
+		.module {
+			flex: 1;
+			margin: 10px;
+			padding: 20px;
+			border: 1px solid black;
+			box-sizing: border-box;
+			overflow-y: auto;
+		}
+
+		.module.one {
+			flex: 1 1 50%;
+		}
+
+		.module.two {
+			flex: 1 1 50%;
+		}
+
+		.module.three {
+			flex: 1;
+		}
+.button {
+  width: 100px; /* 按钮宽度为100像素 */
+  height: 36px; /* 按钮高度为36像素 */
+  /* 其他按钮样式的设定 */
+}

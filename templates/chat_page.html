@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+     <meta charset="UTF-8">
+     <title>能力展示 - 首页</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+     <meta name="theme-color" content="#000000" />
+     <style data-jss="" data-meta="MuiSvgIcon"></style>
+     <link rel="stylesheet" href="/static/chat_tool.css" />
+     <link rel="stylesheet" href="/static/botong_style.css" />
+     <link href="static/prism.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/qs/dist/qs.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+     <script src="static/prism.js"></script>
+       <!-- 引入 jQuery 文件 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- 引入 jQuery UI 文件 -->
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <!-- 其他代码 -->
+
+ </head>
+
+<body>
+<div id="root" class="app">
+<header class="title_1">
+                    <div class="title_box_2">
+
+                        <img aria-current="page" class="image_title" href="/"><img alt="Logo" src="/static/images/botong.svg" style="height: 64px; padding-top: 10px;" /></img>
+
+                        <a id="main_page" aria-current="page" class="text_title_deactive active" href="/" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             首页
+                            </div></a>
+                        <a id="chat" aria-current="page" class="text_title_active active" href="/chat" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             对话模型
+                            </div></a>
+                        <a id="tools" aria-current="page" class="text_title_deactive active" href="/ad" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             工具箱
+                            </div></a>
+                    </div>
+                </header>
+</div>
+<div class="main_box1" id="rootContainer">
+ <div class="main_box2">
+  <div class="main_box3">
+   <div class="main_box4">
+    <div>
+<!--        这是主要页面box-->
+     <div class="tool_box">
+      <div class="empty_box" style="height: 25px;"></div>
+<!--         以下是功能介绍box-->
+       <div class="empty_box">
+        <div class="intro_box" bgcolor="background.paper" m="1" border="2">
+                    <div class="inner_intro_box1">
+                     <div class="inner_intro_box2">
+                      <div class="empty_border">
+                       <div class="empty_border">
+                        <h2 class="intro_title" >场景角色对话</h2>
+                       </div>
+                      <div class="inner_intro_box3" style="padding-top: 1rem;">
+                       <div class="empty_border" style="width: 72%; color: #000000;">
+                        <section>
+                         <div>
+                          <span>本功能主要用于和预设角色在预设场景进行对话。用户可以设置自己喜欢的人设、对话对象和对话场景。</span>
+                         </div>
+                        </section>
+                       </div>
+                       <div class="" style="width: 3%;"></div>
+                       <div class="" style="width: 25%;">
+                        <div class="">
+                         <div class="" style="border: 1px dashed gray; padding: 10px;">
+                          <div class="intro_info_box1">
+                           <div class=" intro_info_box2"> <!--创作时间-->
+                            <div class=" intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>创建时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--优化时间-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>优化时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--作者（联系方式）-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>联系人</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">easingliu（企业微信）</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--相关介绍连接-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>相关介绍</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text"></span>
+                            </div>
+                           </div>
+                          </div>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+       </div>
+<!--         以下是功能使用box-->
+       <div class="tool_box" style="margin-top: 20px;">
+           <div class="settings-module">
+<!--               将内部内容进行替换-->
+<div class="container" > <!-- .container -->
+    <div class="column_box" >
+			<div class="mid">
+				<div class="row_box">
+
+					<div class="module one">
+                        <div class="config-group">
+              <h3>系统角色设置</h3>
+                            <div class="input-group">
+                              <label for="system_config">预设</label>
+                              <select id="system_config">
+                                <option value="other">请选择</option>
+                              </select>
+                            </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <label for="system-name" class="ms-Label">姓名</label>
+                    <input type="textarea_config" id="system-name" class="form-control ms-TextField-field">
+                    <label for="system-age" class="ms-Label">年龄</label>
+                    <input type="textarea_config" id="system-age" class="form-control ms-TextField-field">
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="input-group">
+                <label for="system-race" class="ms-Label">种族</label>
+                <input type="textarea_config" id="system-race" class="form-control ms-TextField-field">
+                  <label for="system-gender" class="ms-Label">性别</label>
+                <input type="textarea_config" id="system-gender" class="form-control ms-TextField-field">
+              </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="system-job" class="ms-Label">职业</label>
+                <input type="textarea_config" id="system-job" class="form-control ms-TextField-field">
+                  <label for="system-identity" class="ms-Label">身份</label>
+                <input type="textarea_config" id="system-identity" class="form-control ms-TextField-field">
+                       </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="system-like" class="ms-Label">爱好</label>
+                <textarea id="system-like" class="form-control ms-TextField-field textarea"></textarea>
+              </div>
+                  </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="system-habit" class="ms-Label">口头禅</label>
+                <textarea id="system-habit" class="form-control ms-TextField-field textarea"></textarea>
+              </div>
+                  </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="system-experience" class="ms-Label">经历</label>
+                <textarea id="system-experience" class="form-control ms-TextField-field textarea"></textarea>
+              </div>
+              </div>
+                <div class="form-group">
+                  <div class="input-group">
+                <label for="system-personality" class="ms-Label">性格</label>
+                <textarea id="system-personality" class="form-control ms-TextField-field textarea"></textarea>
+              </div>
+              </div>
+                <div class="form-group">
+                  <div class="input-group">
+                <label for="system-other" class="ms-Label">其他</label>
+                <textarea id="system-other" class="form-control ms-TextField-field textarea"></textarea>
+              </div>
+              </div>
+              <div class="form-group">
+
+              </div>
+
+            </div>
+                        <div class="row_box">
+                <button id="system_role_save" style="margin-right: 23px;" class="button">保存</button>
+                <textarea id="system-system_rol_save_name" class="form-control ms-TextField-field"
+                placeholder="请输入要保存的角色名称。保存的预设角色会出现在预设菜单中，名字重复的自定义角色会自动覆盖，保存时请注意。"></textarea>
+
+              </div>
+                    </div>
+					<div class="module two">
+                        <div class="config-group">
+   	 		<h3>用户角色设置</h3>
+              <div class="form-group">
+                <div class="input-group">
+                    <label for="user-name" class="ms-Label">姓名</label>
+                    <input type="textarea_config" id="user-name" class="form-control ms-TextField-field" maxlength="10">
+                    <label for="user-age" class="ms-Label">年龄</label>
+                    <input type="textarea_config" id="user-age" class="form-control ms-TextField-field" maxlength="10">
+                </div>
+              </div>
+              <div class="form-group">
+              <div class="input-group">
+                <label for="user-race" class="ms-Label">种族</label>
+                <input type="textarea_config" id="user-race" class="form-control ms-TextField-field" maxlength="10">
+                  <label for="user-gender" class="ms-Label">性别</label>
+                <input type="textarea_config" id="user-gender" class="form-control ms-TextField-field" maxlength="10">
+              </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="user-job" class="ms-Label">职业</label>
+                <input type="textarea_config" id="user-job" class="form-control ms-TextField-field" maxlength="10">
+                  <label for="user-identity" class="ms-Label">身份</label>
+                <input type="textarea_config" id="user-identity" class="form-control ms-TextField-field" maxlength="10">
+                       </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="user-like" class="ms-Label">爱好</label>
+                <textarea id="user-like" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+              </div>
+                  </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="user-habit" class="ms-Label">口头禅</label>
+                <textarea id="user-habit" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+              </div>
+                  </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="user-experience" class="ms-Label">经历</label>
+                <textarea id="user-experience" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+              </div>
+              </div>
+                <div class="form-group">
+                  <div class="input-group">
+                <label for="user-personality" class="ms-Label">性格</label>
+                <textarea id="user-personality" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+              </div>
+              </div>
+                <div class="form-group">
+                  <div class="input-group">
+<!--                      <div class="label-container">-->
+                <label for="user-other" class="ms-Label">其他</label>
+<!--                          </div>-->
+                <textarea type="textarea_config" id="user-other" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+              </div>
+              </div>
+            </div>
+                    </div>
+				</div>
+			</div>
+
+
+		<div class="module three">
+            <div class="config-group">
+              <h3>双方角色设定和场景设定</h3>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="role-relationship" class="ms-Label">关系</label>
+                <textarea id="role-relationship" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                       </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="role-feelings" class="ms-Label">感情</label>
+                <textarea id="role-feelings" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                       </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                <label for="conversation-scenario" class="ms-Label">场景</label>
+                <textarea id="conversation-scenario" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                       </div>
+                  </div>
+                <div class="form-group">
+                  <div class="input-group">
+                <label for="important-experience" class="ms-Label">经历</label>
+                <textarea id="important-experience" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                       </div>
+                  </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div id="buttons">
+      <button id="load-config">载入</button>
+      <button id="save-config">保存</button>
+    </div>
+    <div id="fixed-text"></div>
+<!--对话框的内容-->
+	<div class="chat-window">
+		<ul class="messages">
+			<!-- Placeholder for chat messages. -->
+		</ul>
+<!--		<div class="input-wrapper">-->
+<!--			<input type="text" placeholder="Type here...">-->
+<!--			<button id="send-btn">Send</button>-->
+<!--		</div>-->
+		<div class="input-wrapper">
+  			<textarea id="myTextarea" placeholder="Type here..." rows="3"></textarea>
+  			<button id="send-btn">输入</button>
+		</div>
+	</div>
+           </div>
+<!--               被替换内容结束-->
+           </div>
+       </div>
+    </div>
+ </div>
+</div>
+       </div>
+      </div>
+     </div>
+<script src="/static/chat_tools.js"></script>
+</body>
+</html>
