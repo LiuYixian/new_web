@@ -133,17 +133,29 @@
 <!--               将内部内容进行替换-->
 <div class="container" > <!-- .container -->
     <div class="column_box" >
+{#        <div class="row_box">#}
+            <div class="form-group">
+                            <div class="input-group">
+                <span for="user_key" class="col-md-1 ms-Label" style="margin-right: 15px;">user-key:</span>
+                <textarea id="user_key" class="col-md-2 form-control ms-TextField-field textarea" style="width: 20%;"></textarea>
+                <button id="user_key_check" style="margin-right: 23px;" class="button">校验</button>
+                            </div>
+            </div>
+{#              </div>#}
+            <span for="user_key" class="ms-Label" style="margin-right: 15px">请尽量选择独特的user-key以避免和其他用户冲突。点击按钮可以校验当前user-key是否已经存在。</span>
 			<div class="mid">
 				<div class="row_box">
 
 					<div class="module one">
                         <div class="config-group">
               <h3>系统角色设置</h3>
+                            <div class="form-group">
                             <div class="input-group">
                               <label for="system_config">预设</label>
                               <select id="system_config">
                                 <option value="other">请选择</option>
                               </select>
+                            </div>
                             </div>
               <div class="form-group">
                 <div class="input-group">
@@ -214,52 +226,60 @@
 					<div class="module two">
                         <div class="config-group">
    	 		<h3>用户角色设置</h3>
+                            <div class="form-group">
+                            <div class="input-group">
+                              <label for="user_config">预设</label>
+                              <select id="user_config">
+                                <option value="other">请选择</option>
+                              </select>
+                            </div>
+                            </div>
               <div class="form-group">
                 <div class="input-group">
                     <label for="user-name" class="ms-Label">姓名</label>
-                    <input type="textarea_config" id="user-name" class="form-control ms-TextField-field" maxlength="10">
+                    <input type="textarea_config" id="user-name" class="form-control ms-TextField-field">
                     <label for="user-age" class="ms-Label">年龄</label>
-                    <input type="textarea_config" id="user-age" class="form-control ms-TextField-field" maxlength="10">
+                    <input type="textarea_config" id="user-age" class="form-control ms-TextField-field">
                 </div>
               </div>
               <div class="form-group">
               <div class="input-group">
                 <label for="user-race" class="ms-Label">种族</label>
-                <input type="textarea_config" id="user-race" class="form-control ms-TextField-field" maxlength="10">
+                <input type="textarea_config" id="user-race" class="form-control ms-TextField-field">
                   <label for="user-gender" class="ms-Label">性别</label>
-                <input type="textarea_config" id="user-gender" class="form-control ms-TextField-field" maxlength="10">
+                <input type="textarea_config" id="user-gender" class="form-control ms-TextField-field">
               </div>
               </div>
               <div class="form-group">
                   <div class="input-group">
                 <label for="user-job" class="ms-Label">职业</label>
-                <input type="textarea_config" id="user-job" class="form-control ms-TextField-field" maxlength="10">
+                <input type="textarea_config" id="user-job" class="form-control ms-TextField-field">
                   <label for="user-identity" class="ms-Label">身份</label>
-                <input type="textarea_config" id="user-identity" class="form-control ms-TextField-field" maxlength="10">
+                <input type="textarea_config" id="user-identity" class="form-control ms-TextField-field">
                        </div>
               </div>
               <div class="form-group">
                   <div class="input-group">
                 <label for="user-like" class="ms-Label">爱好</label>
-                <textarea id="user-like" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="user-like" class="form-control ms-TextField-field textarea" ></textarea>
               </div>
                   </div>
               <div class="form-group">
                   <div class="input-group">
                 <label for="user-habit" class="ms-Label">口头禅</label>
-                <textarea id="user-habit" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="user-habit" class="form-control ms-TextField-field textarea" ></textarea>
               </div>
                   </div>
               <div class="form-group">
                   <div class="input-group">
                 <label for="user-experience" class="ms-Label">经历</label>
-                <textarea id="user-experience" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="user-experience" class="form-control ms-TextField-field textarea" ></textarea>
               </div>
               </div>
                 <div class="form-group">
                   <div class="input-group">
                 <label for="user-personality" class="ms-Label">性格</label>
-                <textarea id="user-personality" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="user-personality" class="form-control ms-TextField-field textarea" ></textarea>
               </div>
               </div>
                 <div class="form-group">
@@ -267,11 +287,18 @@
 <!--                      <div class="label-container">-->
                 <label for="user-other" class="ms-Label">其他</label>
 <!--                          </div>-->
-                <textarea type="textarea_config" id="user-other" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea type="textarea_config" id="user-other" class="form-control ms-TextField-field textarea" ></textarea>
               </div>
               </div>
             </div>
+                        <div class="row_box">
+                <button id="user_role_save" style="margin-right: 23px;" class="button">保存</button>
+                <textarea id="user-user_rol_save_name" class="form-control ms-TextField-field"
+                placeholder="请输入要保存的角色名称。保存的预设角色会出现在预设菜单中，名字重复的自定义角色会自动覆盖，保存时请注意。"></textarea>
+
+              </div>
                     </div>
+
 				</div>
 			</div>
 
@@ -282,25 +309,25 @@
               <div class="form-group">
                   <div class="input-group">
                 <label for="role-relationship" class="ms-Label">关系</label>
-                <textarea id="role-relationship" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="role-relationship" class="form-control ms-TextField-field textarea" ></textarea>
                        </div>
               </div>
               <div class="form-group">
                   <div class="input-group">
                 <label for="role-feelings" class="ms-Label">感情</label>
-                <textarea id="role-feelings" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="role-feelings" class="form-control ms-TextField-field textarea" ></textarea>
                        </div>
               </div>
               <div class="form-group">
                   <div class="input-group">
                 <label for="conversation-scenario" class="ms-Label">场景</label>
-                <textarea id="conversation-scenario" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="conversation-scenario" class="form-control ms-TextField-field textarea" ></textarea>
                        </div>
                   </div>
                 <div class="form-group">
                   <div class="input-group">
                 <label for="important-experience" class="ms-Label">经历</label>
-                <textarea id="important-experience" class="form-control ms-TextField-field" maxlength="100" rows="1"></textarea>
+                <textarea id="important-experience" class="form-control ms-TextField-field textarea" ></textarea>
                        </div>
                   </div>
           </div>
@@ -308,10 +335,6 @@
 
     </div>
 
-    <div id="buttons">
-      <button id="load-config">载入</button>
-      <button id="save-config">保存</button>
-    </div>
     <div id="fixed-text"></div>
 <!--对话框的内容-->
 	<div class="chat-window">
