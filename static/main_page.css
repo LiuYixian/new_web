@@ -1,0 +1,28 @@
+#ability-list-container {
+  margin: 20px; /* 容器外边距 */
+  padding: 20px; /* 容器内边距 */
+  border: 1px solid grey; /* 容器边框 */
+  box-shadow: 5px 5px 10px grey; /* 容器投影 */
+  border-radius: 10px; /* 容器边框角半径 */
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: grey;
+  margin: 20px 0; /* 上下边距 */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2em;
+  line-height: 40px; /* 垂直居中 */
+  transition: all 0.2s ease-in-out; /* 动画过渡效果 */
+}
+
+a:hover {
+  background-color: grey; /* 鼠标悬停时背景色 */
+  color: white; /* 鼠标悬停时文本颜色 */
+  transform: scale(1.1); /* 鼠标悬停时缩放效果 */
+}
