@@ -225,6 +225,9 @@ def chat_page():
 def ad_page():
     return render_template('ad_ctr_page.html')
 
+@app.route('/ad_gen')
+def ad_gen_page():
+    return render_template('ad_text_generation.html')
 # @app.route('/ad_analysis' , methods=['POST'])
 # def ad_analysis():
 #     x=1

@@ -1,5 +1,5 @@
 // 获取DOM节点
-const materialInput = document.getElementById("material");
+// const materialInput = document.getElementById("material");
 const gameNameInput = document.getElementById("game-name");
 const gameIntroInput = document.getElementById("game-intro");
 const channelSelect = document.getElementById("channel");
@@ -36,14 +36,15 @@ confirmBtn.addEventListener("click", () => {
 //   resultElement.appendChild(descriptionElement);
 //   resultsContainer.appendChild(resultElement);
 // }
-  if (materialInput.value === '' && gameNameInput.value === ''){
-    alert('请提供待分析文案，以能够进行分析。或者提供游戏名和广告目的，以提供文案建议。')
+  if (gameNameInput.value === ''){
+    alert('请提供要服务的游戏名称')
     return
   }
   resultsDiv.innerHTML = '正在进行分析，请稍等';
+
   // 获取各个输入框的值
   const input = {
-    'text': materialInput.value,
+    'text': '',
     'name': gameNameInput.value,
     'intro': gameIntroInput.value,
     'channel': channelSelect.value,
