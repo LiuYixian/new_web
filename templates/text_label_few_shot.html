@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+     <meta charset="UTF-8">
+     <title>能力展示 - 素材诊断</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+     <meta name="theme-color" content="#000000" />
+
+     <style data-jss="" data-meta="MuiSvgIcon"></style>
+     <link rel="stylesheet" href="/static/botong_style.css" />
+     <link rel="stylesheet" href="/static/ad_analysis.css" />
+     <link rel="stylesheet" href="/static/zero_label.css" />
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+ </head>
+<body>
+<div id="root" class="app">
+<div class="title_1">
+                    <div class="title_box_2">
+
+                        <img aria-current="page" class="image_title" href="/"><img alt="Logo" src="/static/images/botong.svg" style="height: 64px; padding-top: 10px;" /></img>
+
+                        <a id="main_page" aria-current="page" class="text_title_deactive active" href="/" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             首页
+                            </div></a>
+<!--                        <a id="chat" aria-current="page" class="text_title_deactive active" href="/chat" style="min-width: 120px;">-->
+<!--                            <div style="margin: auto;">-->
+<!--                             对话模型-->
+<!--                            </div></a>-->
+{#                        <a id="tools" aria-current="page" class="text_title_active active" href="/ad" style="min-width: 120px;">#}
+{#                            <div style="margin: auto;">#}
+{#                             工具箱#}
+{#                            </div></a>#}
+                    </div>
+                </div>
+</div>
+<div class="main_box1" id="rootContainer">
+ <div class="main_box2">
+  <div class="main_box3">
+   <div class="main_box4">
+
+<!--我需要在html页面中增加一个设置模块，整个模块横向占据整个宽度，随着设置内容的变化，纵向高度会变化。包含内容如下:
+1. 首先模块标题，内容是"Demo"，在左上角，尽量醒目
+2. 接下来是输入栏，输入栏整体有边框，浅色背景，柔和，包含多行，每一个输入选项分为标题和输入/选择栏，标题在左，设置栏在右，需要列对齐。其中第一行标题为
+"输入素材文案"，对应输入栏，宽度对齐到右边栏，支持多行，如果有多行则自动调整高度。第二行标题为"游戏名称"，对应输入栏。
+第三行标题为"游戏介绍"，对应输入栏，支持多行。第四行为"渠道选择"，对应单选下拉框，下拉选项包括"不指定渠道"、"微信公众号"
+、"微信红点"、"qq公众号"、"qq红点"。第五行为"文案目的"，对应输入栏，支持多行。第六行为"字数限制"，对应输入栏。
+3. 接下来是一个按钮，"确定"
+4. 接下来是结果栏，整体有边框，浅色背景，柔和，用户点击确定后，根据服务返回结果生成。生成结果可能为动态条数，每一条结果包含标题和正文，正文可能为多行。标题单独一行，正文和标题间没有空行，不同条结果之间有空行。
+请你同时生成按下结果后调用服务然后在前端动态显示结果的js代码。以上配置涉及的画面设置都通过css配置。-->
+<!--       点击确定后执行以下操作，根据设置框的内容，得到dict变量input，包含字段 素材文案、游戏名称、游戏介绍、渠道选择、文案目的、字数限制。将该变量发送给服务“ad_analysis”。然后提取结果为dict变量result，包含未知数量的数据。result中每一个key value的组合将会在前端展示为一条结果，key作为标题，value作为正文。请你给出js实现这个功能，并且相应修改html代码以支持结果的动态显示-->
+<!--                </div>-->
+    <div>
+<!--        这是主要页面box-->
+     <div class="tool_box">
+      <div class="empty_box" style="height: 25px;"></div>
+         <!--         以下是功能介绍box-->
+       <div class="empty_box">
+        <div class="intro_box" bgcolor="background.paper" m="1" border="2">
+                    <div class="inner_intro_box1">
+                     <div class="inner_intro_box2">
+                      <div class="empty_border">
+                       <div class="empty_border">
+                        <h2 class="intro_title" >zeroshot文本打标</h2>
+                       </div>
+                      <div class="inner_intro_box3" style="padding-top: 1rem;">
+                       <div class="empty_border" style="width: 72%; color: #000000;">
+                        <section>
+                         <div>
+                          <span>根据给定的标签以及定义，对文本进行分类或打标。</span>
+                         </div>
+                        </section>
+                       </div>
+                       <div class="" style="width: 3%;"></div>
+                       <div class="" style="width: 25%;">
+                        <div class="">
+                         <div class="" style="border: 1px dashed gray; padding: 10px;">
+                          <div class="intro_info_box1">
+                           <div class=" intro_info_box2"> <!--创作时间-->
+                            <div class=" intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>创建时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--优化时间-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>优化时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--作者（联系方式）-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>联系人</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">easingliu（企业微信）</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--相关介绍连接-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>相关介绍</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text"></span>
+                            </div>
+                           </div>
+                          </div>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+       </div>
+<!--         以下是功能使用box-->
+       <div class="tool_box" style="margin-top: 20px;">
+           <div class="settings-module">
+  <h1 class="module-title">Demo</h1>
+    <div id="container">
+      <div class="row header">
+        <div class="col col-1">标签名称</div>
+        <div class="col col-2">标签定义</div>
+        <div class="col col-3"></div>
+      </div>
+      <div class="row">
+        <div class="col col-1"><input class="labels" type="text" maxlength="8"></div>
+        <div class="col col-2"><textarea  class="textarea descs"></textarea></div>
+        <div class="col col-3"><button class="delete">删除</button></div>
+      </div>
+      <div class="row">
+        <div class="col col-1"><input class="labels" type="text" maxlength="8"></div>
+        <div class="col col-2"><textarea  class="textarea descs"></textarea></div>
+        <div class="col col-3"><button class="delete">删除</button></div>
+      </div>
+      <div class="row">
+        <div class="col col-1"><input class="labels" type="text" maxlength="8"></div>
+        <div class="col col-2"><textarea class="textarea descs"></textarea></div>
+        <div class="col col-3"><button class="delete">删除</button></div>
+      </div>
+      <div class="row">
+        <div class="col col-1"><input class="labels" type="text" maxlength="8"></div>
+        <div class="col col-2"><textarea class="textarea descs"></textarea></div>
+        <div class="col col-3"><button class="delete">删除</button></div>
+      </div>
+      <div class="row">
+        <div class="col col-1"><input class="labels" type="text" maxlength="8"></div>
+        <div class="col col-2"><textarea class="textarea descs"></textarea></div>
+        <div class="col col-3"><button class="delete">删除</button></div>
+      </div>
+      <div class="row add-row">
+        <div class="col col-1"></div>
+        <div class="col col-2"></div>
+        <div class="col col-3"><button class="add">添加</button></div>
+      </div>
+    </div>
+    <div class="input-group">
+      <label for="label_text">打标文本：</label>
+      <textarea id="label_text"></textarea>
+    </div>
+    <div class="confirm_button_container">
+      <button id="confirm-btn" class="confirm-btn">确定</button>
+      <div class="button_text">分析过程可能需要20秒左右，请耐心等待</div>
+    </div>
+<!--  <button id="confirm-btn">确定</button>-->
+  <div class="results"></div>
+  <div id="results-container"></div>
+</div>
+
+                 </div>
+       </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+<script src="/static/zero_label.js"></script>
+</body>
+
+</html>

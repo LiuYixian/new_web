@@ -1,0 +1,84 @@
+#container {
+  font-family: Arial;
+  font-size: 14px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.row.header {
+  font-weight: bold;
+}
+
+.col {
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.col-1 {
+  flex: 1;
+  max-width: 70px;
+}
+
+.col-2 {
+  flex: 2;
+  max-width: 100%;
+}
+
+.col-3 {
+  flex: 1;
+  max-width: 70px;
+  text-align: center;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  margin: 0;
+  padding: 5px;
+  border: none;
+  background-color: #EEE;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #DDD;
+}
+
+button.delete {
+  color: red;
+}
+
+button.add {
+  color: green;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  margin-right: 16px;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 8px;
+  font-size: 16px;
+}

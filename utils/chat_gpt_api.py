@@ -6,17 +6,17 @@ import requests
 ## chatgpt api 初始化
 headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer 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",
+    "Authorization": "Bearer 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",
   }
-
+time_sleep = 10
 class Timer():
     def __init__(self):
         self.last_time = time.time()
-        self.last_time -= 20
+        self.last_time -= time_sleep
     def step(self):
         t_time = time.time()
-        if t_time - self.last_time < 20:
-            time.sleep(20 - (t_time - self.last_time))
+        if t_time - self.last_time < time_sleep:
+            time.sleep(time_sleep - (t_time - self.last_time))
             self.last_time = t_time
 my_timer = Timer()
 
@@ -24,9 +24,9 @@ def generate_reply(message, stream=False):
     # 解析用户输入
     t_time = time.time()
     x=1
-    if t_time - my_timer.last_time < 20:
-        time2sleep = 20 - (t_time - my_timer.last_time)
-        my_timer.last_time = my_timer.last_time + 20
+    if t_time - my_timer.last_time < time_sleep:
+        time2sleep = time_sleep - (t_time - my_timer.last_time)
+        my_timer.last_time = my_timer.last_time + time_sleep
         print("sleep {}s".format(round(time2sleep)))
         # yield "sleep {}s".format(round(time2sleep))
         time.sleep(time2sleep)

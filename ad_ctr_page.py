@@ -9,6 +9,32 @@ from utils.logger import info2file
 app = Flask(__name__)
 
 ## chatgpt api 初始化
+@app.route('/api/zero_label_api', methods=['POST'])
+def zero_label_api():
+    labels = request.json.get('labels')
+    text = request.json.get('label_text_string')
+    label2text = '['
+    for label in labels:
+        label2text += label + '：'
+        if labels[label] == '':
+            label2text += '描述略'
+        else:
+            label2text += labels[label]
+        label2text += '; '
+    label2text += ']'
+    user_info = '请对以下文本进行打标，判断文本是否包含了特定的标签特征。' \
+                '打标文本为"{}"，标签体系和标签定义如下{}。' \
+                '返回结果请按行给出，展示所有待打标标签标签，打标结果，同时给出打标依据，打标依据通常以文本中包含的关键词来给出。' \
+                '如：\n 标签：label1 \t 结果： Yes\t 依据：keywords1' \
+                '\n 标签：label2 \t 结果： No\t 依据：keywords2。\n '.format(text, label2text)
+    print(user_info)
+    message = [
+        {"role": "user", "content": user_info}
+    ]
+    result = generate_reply(message=message, stream=False)
+    print(result)
+
+    return {'': result}
 
 def generate_role_text(role_config):
     role_text = '';
@@ -140,7 +166,7 @@ def ad_analysis():
 
     info2file(task = 'ad_analysis', info = 'message: {}'.format(str(message)))
     result = generate_reply(message = message, stream= False)
-    info2file(task = 'ad_analysis', info = 'result: {}'.format(str(message)))
+    info2file(task = 'ad_analysis', info = 'result: {}'.format(str(result)))
 
 
     if text != '':
@@ -226,8 +252,12 @@ def ad_page():
     return render_template('ad_ctr_page.html')
 
 @app.route('/ad_gen')
-def ad_gen_page():
+def ad_gen():
     return render_template('ad_text_generation.html')
+
+@app.route('/zero_label')
+def zero_label():
+    return render_template('text_label_few_shot.html')
 # @app.route('/ad_analysis' , methods=['POST'])
 # def ad_analysis():
 #     x=1
