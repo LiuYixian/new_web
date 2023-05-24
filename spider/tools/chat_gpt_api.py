@@ -1,6 +1,5 @@
 import time
 import json
-from flask import  Response, stream_with_context
 import requests
 
 ## chatgpt api 初始化
@@ -8,7 +7,9 @@ headers = {
     "Content-Type": "application/json",
     "Authorization": "Bearer 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",
   }
-time_sleep = 10
+
+time_sleep = 5
+
 class Timer():
     def __init__(self):
         self.last_time = time.time()
@@ -42,13 +43,21 @@ def generate_reply(message, stream=False):
             "temperature": 1,
             "stream": False,  # 启用流式API
         }
-        response = requests.post(
-            "https://api.openai.com/v1/chat/completions",
-            headers=headers,
-            json=data,
-            stream=False,  # 同样需要启用流式API
-        )
-        return json.loads(response.text)['choices'][0]['message']['content']
+        for i in range(5):
+            response = requests.post(
+                "https://api.openai.com/v1/chat/completions",
+                headers=headers,
+                json=data,
+                stream=False,  # 同样需要启用流式API
+            )
+            if '"error": {' not in response.text:
+                break
+            time.sleep(time_sleep)
+            print('request {} error as {}. retrying!'.format(message, response.text))
+        if '"error": {' not in response.text:
+            return json.loads(response.text)['choices'][0]['message']['content']
+        else:
+            return response.text
 
 
     def my_generate_stream():
