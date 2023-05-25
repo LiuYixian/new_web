@@ -78,4 +78,5 @@ def get_info():
                 print('错误tag {}'.format(tag))
                 pass
     browser.quit()
+    hot_list = hot_list[:60]
     return hot_list

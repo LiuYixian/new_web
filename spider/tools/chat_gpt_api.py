@@ -5,10 +5,10 @@ import requests
 ## chatgpt api 初始化
 headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer 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",
+    "Authorization": "Bearer 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",
   }
 
-time_sleep = 5
+time_sleep = 20
 
 class Timer():
     def __init__(self):

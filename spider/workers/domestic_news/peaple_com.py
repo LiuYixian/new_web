@@ -77,4 +77,5 @@ def get_info():
                 pass
             x=1
     browser.quit()
+    hot_list = hot_list[:60]
     return hot_list

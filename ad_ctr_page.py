@@ -1,5 +1,6 @@
 import os
 import json
+import pandas as pd
 from flask import Flask, render_template, request
 from utils.chat_gpt_api import generate_reply
 from utils.logger import info2file
@@ -8,6 +9,26 @@ from utils.logger import info2file
 
 app = Flask(__name__)
 
+
+@app.route('/api/web_show')
+def web_show_api():
+    result = dict()
+    with open('spider/worker_dict.json', encoding='utf8') as f:
+        worker_dict = json.load(f)
+    for part in os.listdir('spider/data'):
+        result[part] = dict()
+        for title in os.listdir('spider/data/{}'.format(part)):
+            try:
+                files = os.listdir('spider/data/{}/{}'.format(part, title))
+                file = max(files)
+                df = pd.read_csv('spider/data/{}/{}/{}'.format(part, title, file), sep ='\t')
+                if 'hot_title_for' in df:
+                    result[part][worker_dict[title]] = df[["hot_title", "url", "hot_title_for"]].values.tolist()
+                else:
+                    result[part][worker_dict[title]] = df[["hot_title", "url"]].values.tolist()
+            except:
+                pass
+    return json.dumps(result)
 ## chatgpt api 初始化
 @app.route('/api/zero_label_api', methods=['POST'])
 def zero_label_api():
@@ -246,6 +267,10 @@ def main_page():
 @app.route('/chat')
 def chat_page():
     return render_template('chat_page.html')
+
+@app.route('/web_show')
+def web_show():
+    return render_template('web_show.html')
 
 @app.route('/ad')
 def ad_page():

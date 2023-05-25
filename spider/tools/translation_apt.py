@@ -1,23 +1,23 @@
 import requests
 from tools.chat_gpt_api import generate_reply
 
-
+batch = 20
 def translation_detail_to_chinese(hot_list):
     tran_result = []
     foreign = []
     for a in hot_list:
         foreign.append(a['hot_title_for'])
-        if len(foreign) >= 10:
+        if len(foreign) >= batch:
             zh_text = translate('\n\n'.join(foreign))
             zh_text = zh_text.replace('\n\n', '\n')
             zh_texts = zh_text.split('\n')
-            if len(zh_texts) == 10:
+            if len(zh_texts) == batch:
                 tran_result.extend(zh_texts)
             else:
-                if len(zh_texts) > 10:
-                    zh_texts = zh_texts[:10]
+                if len(zh_texts) > batch:
+                    zh_texts = zh_texts[:batch]
                 else:
-                    zh_texts = zh_texts + [''] * (10 - len(zh_texts))
+                    zh_texts = zh_texts + [''] * (batch - len(zh_texts))
                 tran_result.extend(zh_texts)
             foreign = []
     if len(zh_texts) > 0:

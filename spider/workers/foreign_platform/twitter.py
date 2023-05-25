@@ -4,13 +4,13 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-from tools.translation_apt import translation_detail_to_chinese
+# from tools.translation_apt import translation_detail_to_chinese
 import time
 def get_info():
     # 创建Chrome浏览器实例
     browser = webdriver.Chrome()
     # 打开Google首页
-    browser.get('https://edition.cnn.com/')
+    browser.get('https://twitter.com/settings/trends')
     '''
         ID = "id"
         XPATH = "xpath"
@@ -85,6 +85,9 @@ def get_info():
     hot_list = translation_detail_to_chinese(hot_list)
 
     return hot_list
+
+if __name__ == '__main__':
+    hot_list = get_info()
 
 
 

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+     <meta charset="UTF-8">
+     <title>热点聚合</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+     <meta name="theme-color" content="#000000" />
+     <style data-jss="" data-meta="MuiSvgIcon"></style>
+     <link rel="stylesheet" href="/static/chat_tool.css" />
+     <link rel="stylesheet" href="/static/botong_style.css" />
+     <link href="static/prism.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/qs/dist/qs.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+     <script src="static/prism.js"></script>
+       <!-- 引入 jQuery 文件 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- 引入 jQuery UI 文件 -->
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <!-- 其他代码 -->
+
+ </head>
+
+<body>
+<div id="root" class="app">
+<header class="title_1">
+                    <div class="title_box_2">
+
+                        <img aria-current="page" class="image_title" href="/"><img alt="Logo" src="/static/images/botong.svg" style="height: 64px; padding-top: 10px;" /></img>
+
+                        <a id="main_page" aria-current="page" class="text_title_deactive active" href="/" style="min-width: 120px;">
+                            <div style="margin: auto;">
+                             首页
+                            </div></a>
+{#                        <a id="chat" aria-current="page" class="text_title_active active" href="/chat" style="min-width: 120px;">#}
+{#                            <div style="margin: auto;">#}
+{#                             对话模型#}
+{#                            </div></a>#}
+{#                        <a id="tools" aria-current="page" class="text_title_deactive active" href="/ad" style="min-width: 120px;">#}
+{#                            <div style="margin: auto;">#}
+{#                             工具箱#}
+{#                            </div></a>#}
+                    </div>
+                </header>
+</div>
+<div class="main_box1" id="rootContainer">
+ <div class="main_box2">
+  <div class="main_box3">
+   <div class="main_box4">
+    <div>
+<!--        这是主要页面box-->
+     <div class="tool_box">
+      <div class="empty_box" style="height: 25px;"></div>
+<!--         以下是功能介绍box-->
+       <div class="empty_box">
+        <div class="intro_box" bgcolor="background.paper" m="1" border="2">
+                    <div class="inner_intro_box1">
+                     <div class="inner_intro_box2">
+                      <div class="empty_border">
+                       <div class="empty_border">
+                        <h2 class="intro_title" >热点聚合</h2>
+                       </div>
+                      <div class="inner_intro_box3" style="padding-top: 1rem;">
+                       <div class="empty_border" style="width: 72%; color: #000000;">
+                        <section>
+                         <div>
+                          <span>用于展示各个平台热点聚合页面</span>
+                         </div>
+                        </section>
+                       </div>
+                       <div class="" style="width: 3%;"></div>
+                       <div class="" style="width: 25%;">
+                        <div class="">
+                         <div class="" style="border: 1px dashed gray; padding: 10px;">
+                          <div class="intro_info_box1">
+                           <div class=" intro_info_box2"> <!--创作时间-->
+                            <div class=" intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>创建时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--优化时间-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>优化时间</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text">2022-05-19</span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--作者（联系方式）-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>联系人</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text"></span>
+                            </div>
+                           </div>
+                           <div class=" intro_info_box2"> <!--相关介绍连接-->
+                            <div class="intro_info_title">
+                             <div class="" style="margin-right: 1rem;">
+                              <span class="intro_info_text"><b>相关介绍</b></span>
+                             </div>
+                            </div>
+                            <div class="intro_info_detail">
+                             <span class="intro_info_text"></span>
+                            </div>
+                           </div>
+                          </div>
+                         </div>
+                        </div>
+                       </div>
+                      </div>
+                     </div>
+                    </div>
+                   </div>
+                  </div>
+       </div>
+<!--         以下是功能使用box-->
+       <div class="tool_box" style="margin-top: 20px;">
+           <div class="settings-module">
+<!--               将内部内容进行替换-->
+               <div style="border: 1px solid black; border-radius: 10px; width: 100%; padding: 10px;">
+  <h2  style="font-weight: bold;">娱乐平台</h2>
+  <div id="domestic_news" style="display: flex; flex-wrap: wrap"></div>
+  <div id="domestic_platform" style="display: flex; flex-wrap: wrap"></div>
+  <div id="foreign_news" style="display: flex; flex-wrap: wrap"></div>
+  <div id="foreign_platform" style="display: flex; flex-wrap: wrap"></div>
+</div>
+
+<script>
+  // 发起API请求获取数据
+  const platform = document.getElementById("platform");
+  fetch('/api/web_show')
+    .then(response => response.json())
+    .then(data => {
+      // 渲染数据
+
+
+      for (let title in data) {
+        // 创建子容器并设置属性
+        const newDiv = document.createElement("div");
+        newDiv.style.border = "1px solid gray";
+        newDiv.style.borderRadius = "10px";
+        newDiv.style.width = "600px";
+        newDiv.style.padding = "10px";
+        // 创建标题元素并设置属性
+        const newTitle = document.createElement("h3");
+        newTitle.style.fontSize = "small";
+        newTitle.textContent = title;
+        // 创建UL元素并设置id属性
+        const newUl = document.createElement("ul");
+        newUl.setAttribute("id", title);
+        // 将标题元素和UL元素添加到新创建的子容器中
+        newDiv.appendChild(newTitle);
+        newDiv.appendChild(newUl);
+        // 将新创建的子容器添加到父容器中
+        platform.appendChild(newDiv);
+        // 获取关联动态id的元素并进行相应的操作
+        const t_Container = document.getElementById(title);
+        // 对动态元素进行相应的操作
+
+        const items = data[title].slice(0, 10); // 只显示前10个
+        for (let [text, url] of items) {
+            const li = document.createElement('li');
+            li.innerHTML = `<a href="${url}" target="_blank">${text}</a>`;
+            t_Container.appendChild(li);
+        }
+
+      }
+    })
+    .catch(error => console.error(error));
+</script>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+</body>
+</html>

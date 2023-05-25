@@ -33,6 +33,7 @@ def run_spider(date, hour):
                     x = 1
                     df['hot_rank'] = df['hot_rank'].astype(int)
                     df = df.sort_values('hot_rank').drop_duplicates()
+                df = df.drop_duplicates(subset = ['hot_title'], keep = 'first')
 
 
 
@@ -51,6 +52,7 @@ if __name__ == '__main__':
                 run_spider(date, hour)
             time.sleep(60)
             last_label = t_label
+            break
 
 
 
