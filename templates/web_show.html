@@ -132,53 +132,80 @@
            <div class="settings-module">
 <!--               将内部内容进行替换-->
                <div style="border: 1px solid black; border-radius: 10px; width: 100%; padding: 10px;">
-  <h2  style="font-weight: bold;">娱乐平台</h2>
-  <div id="domestic_news" style="display: flex; flex-wrap: wrap"></div>
-  <div id="domestic_platform" style="display: flex; flex-wrap: wrap"></div>
-  <div id="foreign_news" style="display: flex; flex-wrap: wrap"></div>
-  <div id="foreign_platform" style="display: flex; flex-wrap: wrap"></div>
+  <h2  style="font-weight: bold;">新闻</h2>
+<div id="domestic_news" style="display: flex; flex-wrap: wrap"></div>
 </div>
+               <div style="border: 1px solid black; border-radius: 10px; width: 100%; padding: 10px;">
+  <h2  style="font-weight: bold;">热点</h2>
+<div id="domestic_platform" style="display: flex; flex-wrap: wrap"></div>
+</div>
+               <div style="border: 1px solid black; border-radius: 10px; width: 100%; padding: 10px;">
+  <h2  style="font-weight: bold;">新闻</h2>
+<div id="foreign_news" style="display: flex; flex-wrap: wrap"></div>
+</div>
+               <div style="border: 1px solid black; border-radius: 10px; width: 100%; padding: 10px;">
+  <h2  style="font-weight: bold;">热点</h2>
+<div id="foreign_platform" style="display: flex; flex-wrap: wrap"></div>
+</div>
+
+
+
+
 
 <script>
   // 发起API请求获取数据
-  const platform = document.getElementById("platform");
+
   fetch('/api/web_show')
     .then(response => response.json())
     .then(data => {
       // 渲染数据
 
+      x=1
+      for (let part in data) {
+          const platform = document.getElementById(part);
+          for (let title in data[part]) {
+            // 创建子容器并设置属
 
-      for (let title in data) {
-        // 创建子容器并设置属性
-        const newDiv = document.createElement("div");
-        newDiv.style.border = "1px solid gray";
-        newDiv.style.borderRadius = "10px";
-        newDiv.style.width = "600px";
-        newDiv.style.padding = "10px";
-        // 创建标题元素并设置属性
-        const newTitle = document.createElement("h3");
-        newTitle.style.fontSize = "small";
-        newTitle.textContent = title;
-        // 创建UL元素并设置id属性
-        const newUl = document.createElement("ul");
-        newUl.setAttribute("id", title);
-        // 将标题元素和UL元素添加到新创建的子容器中
-        newDiv.appendChild(newTitle);
-        newDiv.appendChild(newUl);
-        // 将新创建的子容器添加到父容器中
-        platform.appendChild(newDiv);
-        // 获取关联动态id的元素并进行相应的操作
-        const t_Container = document.getElementById(title);
-        // 对动态元素进行相应的操作
+            const newDiv = document.createElement("div");
+            newDiv.style.border = "1px solid gray";
+            newDiv.style.borderRadius = "10px";
+            newDiv.style.width = "400px";
+            newDiv.style.padding = "10px";
+            // 创建标题元素并设置属性
+            const newTitle = document.createElement("h3");
+            newTitle.style.fontSize = "small";
+            newTitle.textContent = title;
+            // 创建UL元素并设置id属性
+            const newUl = document.createElement("ul");
+            newUl.setAttribute("id", title);
+            // 将标题元素和UL元素添加到新创建的子容器中
+            newDiv.appendChild(newTitle);
+            newDiv.appendChild(newUl);
+            // 将新创建的子容器添加到父容器中
+            platform.appendChild(newDiv);
+            // 获取关联动态id的元素并进行相应的操作
+            const t_Container = document.getElementById(title);
+            t_Container.style.overflow = 'hidden';
+            // 对动态元素进行相应的操作
 
-        const items = data[title].slice(0, 10); // 只显示前10个
-        for (let [text, url] of items) {
-            const li = document.createElement('li');
-            li.innerHTML = `<a href="${url}" target="_blank">${text}</a>`;
-            t_Container.appendChild(li);
-        }
+            const items = data[part][title].slice(0, 50); // 只显示前10个
+            for (let [text, url] of items) {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.textContent = text;
+                link.style.textOverflow = 'ellipsis';
+                link.style.whiteSpace = 'nowrap';
+                link.style.display = 'inline-block';
+                li.appendChild(link)
+                {#li.innerHTML = `{#<a href="${url}" target="_blank">${text}</a>`;#}
+                t_Container.appendChild(li);
+            }
 
+          }
       }
+
     })
     .catch(error => console.error(error));
 </script>

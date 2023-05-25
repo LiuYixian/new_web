@@ -6,12 +6,13 @@ import json
 from datetime import datetime
 
 
-def run_spider(date, hour):
+def run_spider(date, hour, part):
     with open('worker_list.json', encoding='utf8') as f:
         web_dict = json.load(f)
     # web_dict =
     # parts = ['foreign_news']
-    for part in web_dict:
+    # for part in web_dict:
+    if True:
         for file in os.listdir('{}/{}'.format('workers', part)):
             if file.endswith('.py'):
                 module_name = file[:-3]
@@ -41,18 +42,32 @@ def run_spider(date, hour):
 
 
 if __name__ == '__main__':
-    last_label = ''
-    while True:
 
-            date = str(datetime.now())[:10]
-            hour = datetime.now().hour
-            minute = datetime.now().minute
-            t_label = '{}_{}'.format(date, hour)
-            if t_label != last_label:
-                run_spider(date, hour)
-            time.sleep(60)
-            last_label = t_label
-            break
+    date = str(datetime.now())[:10]
+    hour = datetime.now().hour
+    minute = datetime.now().minute
+    run_spider(date, hour, 'domestic_news')
+    run_spider(date, hour, 'domestic_platform')
+    run_spider(date, hour, 'foreign_news')
+    run_spider(date, hour, 'foreign_platform')
+
+    # last_label = ''
+    # hour_time = 0
+    # min_time = 0
+    # while True:
+    #
+    #
+    #
+    #         date = str(datetime.now())[:10]
+    #         hour = datetime.now().hour
+    #         minute = datetime.now().minute
+    #         t_label = '{}_{}'.format(date, hour)
+    #         if min_time >= 60:
+    #             if t_label != last_label:
+    #                 run_spider(date, hour, part)
+    #         time.sleep(60 * 60 )
+    #         last_label = t_label
+    #         break
 
 
 

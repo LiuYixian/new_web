@@ -4,10 +4,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 import time
 def get_info():
     # 创建Chrome浏览器实例
-    browser = webdriver.Chrome()
+    # 创建Chrome浏览器的选项对象
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+
+    browser = webdriver.Chrome(options=chrome_options)
     # 打开Google首页
     browser.get('http://www.people.com.cn/')
     '''

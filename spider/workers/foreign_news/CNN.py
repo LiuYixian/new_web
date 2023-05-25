@@ -5,10 +5,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from tools.translation_apt import translation_detail_to_chinese
+from selenium.webdriver.chrome.options import Options
 import time
 def get_info():
     # 创建Chrome浏览器实例
-    browser = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+
+    browser = webdriver.Chrome(options=chrome_options)
     # 打开Google首页
     browser.get('https://edition.cnn.com/')
     '''
@@ -88,4 +92,8 @@ def get_info():
 
 
 
+
+
+if __name__ == '__main__':
+    get_info()
 

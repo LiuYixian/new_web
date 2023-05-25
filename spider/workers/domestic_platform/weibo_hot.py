@@ -4,11 +4,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 import time
 # 创建Chrome浏览器实例
 
 def get_info():
-    browser = webdriver.Chrome()
+    # 创建Chrome浏览器的选项对象
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+
+    browser = webdriver.Chrome(options=chrome_options)
     # 打开Google首页
     browser.get('https://weibo.com/newlogin?tabtype=search&gid=&openLoginLayer=0&url=')
     '''
@@ -45,6 +50,7 @@ def get_info():
                 hot_score = text_split[-1]
                 sample = {'hot_rank': hot_rank, 'hot_title': hot_title, 'hot_score': hot_score, 'url': url}
                 hot_list.append(sample)
+                print(hot_title)
             else:
                 # 置顶热点
                 hot_rank = 0
@@ -76,3 +82,6 @@ def get_info():
     browser.quit()
     #rso > div:nth-child(1) > div > div > div > div > div > div > div.yuRUbf > a > h3
     return hot_list
+
+if __name__ == '__main__':
+    get_info()

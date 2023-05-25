@@ -4,13 +4,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-# from tools.translation_apt import translation_detail_to_chinese
+from tools.translation_apt import translation_detail_to_chinese
+from selenium.webdriver.chrome.options import Options
 import time
 def get_info():
     # 创建Chrome浏览器实例
-    browser = webdriver.Chrome()
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+
+    browser = webdriver.Chrome(options=chrome_options)
     # 打开Google首页
-    browser.get('https://twitter.com/settings/trends')
+    browser.get('https://www.yna.co.kr/')
     '''
         ID = "id"
         XPATH = "xpath"
@@ -26,18 +30,12 @@ def get_info():
     # 搜集
     #scroller > div.vue-recycle-scroller__item-wrapper > div:nth-child(1) > div > div > div > div > div
     hot_list = []
+    titles = set()
     for i in range(1):
         print('第{}轮'.format(i))
         # output_tag = ['body > div.wrap > div.wrapBg > div > div.wrapCon']
         id_tag = []
-        output_tag = ['body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-light.zone-2-observer',
-                      'body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-light.zone-3-observer',
-                      'body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-light.zone-4-observer',
-                      'body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-light.zone-5-observer',
-                      'body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-light.zone-6-observer',
-                      'body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-light.zone-7-observer',
-                      'body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-light.zone-9-observer',
-                      'body > div.layout__content-wrapper.layout-homepage__content-wrapper > section.layout__wrapper.layout-homepage__wrapper > section > div > section > div > div > div > div.zone.zone--t-dark.zone-11-observer']
+        output_tag = ['div.container']
         # id_tag = ['#rm_cj01', '#rm_cj02', '#rm_kj01', '#rm_kj02', '#rm_kj03', '#rm_gj01','#rm_gj02',
         #           '#rm_gj03', '#rm_gj04', '#rm_df01', '#rm_df03', '#rm_df04', '#rm_wt01', '#rm_wt02',
         #           '#rm_wt03', '#rm_jk01']
@@ -49,10 +47,11 @@ def get_info():
             samples = result.find_elements('css selector', 'a')
             for j, result in enumerate(samples):
                 url = result.get_attribute('href')
-                text = result.text
+                text = result.text.replace('\n', ' ')
 
 
-                if url is not None and text is not None and 'http' in url and len(text.split(' ')) > 3:
+                if url is not None and text is not None and 'http' in url and len(text) > 9 and text not in titles:
+                    titles.add(text)
                     print(text)
                     sample = {'hot_title_for': text, 'url': url}
                     hot_list.append(sample)
@@ -69,8 +68,8 @@ def get_info():
                 # results = result.find_elements('css selector', 'a')
                 for j, result in enumerate(samples):
                     url = result.get_attribute('href')
-                    text = result.text
-                    if url is not None and text is not None and 'http' in url and len(text.split(' ')) > 3:
+                    text = result.text.replace('\n', ' ')
+                    if url is not None and text is not None and 'http' in url and len(text.split(' ')) > 9:
                         print(text + '\t' + url)
                         sample = {'hot_title_for': text, 'url': url}
                         hot_list.append(sample)
@@ -86,9 +85,8 @@ def get_info():
 
     return hot_list
 
+
+
+
 if __name__ == '__main__':
-    hot_list = get_info()
-
-
-
-
+    get_info()

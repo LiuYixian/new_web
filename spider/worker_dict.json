@@ -4,5 +4,27 @@
         "weibo_hot_yule": "微博娱乐",
         "peaple_com": "人民网",
         "huanqiu_com": "环球网",
-        "CNN": "CNN"
-    }
+        "CNN": "CNN",
+        "BBC": "BBC",
+        "bandaodianshitai": "半岛电视台",
+        "dumaixinwen": "读卖新闻",
+        "hanlianshe": "韩联社",
+        "indiantoday": "今日印度",
+        "NYT": "纽约时报",
+        "RT": "今日俄罗斯",
+        "google_trends_AU": "谷歌热点-澳大利亚",
+        "google_trends_BR": "谷歌热点-巴西",
+        "google_trends_EG": "谷歌热点-埃及",
+        "google_trends_GB": "谷歌热点-英国",
+        "google_trends_HK": "谷歌热点-香港特别行政区",
+        "google_trends_IL": "谷歌热点-以色列",
+        "google_trends_IN": "谷歌热点-印度",
+        "google_trends_JP": "谷歌热点-日本",
+        "google_trends_KR": "谷歌热点-韩国",
+        "google_trends_NZ": "谷歌热点-新加坡",
+        "google_trends_RU": "谷歌热点-俄罗斯",
+        "google_trends_SA": "谷歌热点-沙特阿拉伯",
+        "google_trends_TW": "谷歌热点-台湾省",
+        "google_trends_US": "谷歌热点-美国"
+
+}

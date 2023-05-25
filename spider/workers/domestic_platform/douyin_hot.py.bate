@@ -4,10 +4,15 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.options import Options
 import time
 # 创建Chrome浏览器实例
 def get_info():
-    browser = webdriver.Chrome()
+    # 创建Chrome浏览器的选项对象
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+
+    browser = webdriver.Chrome(options=chrome_options)
     # 打开Google首页
     browser.get('https://www.douyin.com/hot')
     '''
@@ -27,8 +32,11 @@ def get_info():
     hot_list = []
     for i in range(10):
         print('第{}轮'.format(i))
-        results = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'li.BHgRhxNh')))
-        results = browser.find_elements('css selector', 'li.BHgRhxNh')
+        results = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, '#douyin-right-container > div:nth-child(2) > div > div.hMNE3E7I > ul > li')))
+        # result = browser.find_element('css selector', '#douyin-right-container > div:nth-child(2) > div > div.hMNE3E7I > ul')
+        # douyin-right-container > div:nth-child(2) > div > div.hMNE3E7I > ul > li:nth-child(1)
+        # douyin-right-container > div:nth-child(2) > div > div.hMNE3E7I > ul > li:nth-child(9)
+        results = browser.find_elements('css selector', '#douyin-right-container > div:nth-child(2) > div > div.hMNE3E7I > ul > li')
         for j, result in enumerate(results):
             # rank_title = result.find_element('css selector', 'dev.ThgqDnuv')
             # rank_img = rank_title.get_attribute('src')
@@ -38,10 +46,11 @@ def get_info():
             # title_elem = result.find_element('css selector' ,'h3')
             # title = title_elem.text
 
-            # index = result.find_element('css selector', 'div')
             content = result.find_element('css selector', 'a')
+            # content = result
             url = content.get_attribute('href')
             title = content.text
+            print(title)
 
             try:
                 hot = result.find_element('css selector', 'div.GsuT_hjh')
@@ -93,3 +102,7 @@ def get_info():
     #rso > div:nth-child(1) > div > div > div > div > div > div > div.yuRUbf > a > h3
 
     return hot_list
+
+if __name__ == '__main__':
+    get_info()
+

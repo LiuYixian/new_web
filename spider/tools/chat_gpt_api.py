@@ -5,7 +5,7 @@ import requests
 ## chatgpt api 初始化
 headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer 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",
+    "Authorization": "Bearer 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",
   }
 
 time_sleep = 20
