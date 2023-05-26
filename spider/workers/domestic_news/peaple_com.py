@@ -84,3 +84,6 @@ def get_info():
     browser.quit()
     hot_list = hot_list[:60]
     return hot_list
+
+if __name__ == '__main__':
+    get_info()
