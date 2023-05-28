@@ -10,7 +10,7 @@ import time
 def get_info():
     # 创建Chrome浏览器的选项对象
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
 
     browser = webdriver.Chrome(options=chrome_options)
     # 打开Google首页

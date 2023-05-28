@@ -31,6 +31,7 @@ def get_info():
     #scroller > div.vue-recycle-scroller__item-wrapper > div:nth-child(1) > div > div > div > div > div
     hot_list = []
     titles = set()
+    urls = set()
     for i in range(1):
         print('第{}轮'.format(i))
         # output_tag = ['body > div.wrap > div.wrapBg > div > div.wrapCon']
@@ -50,8 +51,10 @@ def get_info():
                 text = result.text.replace('\n', ' ')
 
 
-                if url is not None and text is not None and 'http' in url and len(text.split(' ')) > 4 and text not in titles:
+                if url is not None and text is not None and 'http' in url and len(text.split(' ')) > 4 and text not in titles\
+                        and url not in urls:
                     titles.add(text)
+                    urls.add(url)
                     print(text)
                     sample = {'hot_title_for': text, 'url': url}
                     hot_list.append(sample)

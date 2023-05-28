@@ -21,7 +21,7 @@ def web_show_api():
             try:
                 files = os.listdir('spider/data/{}/{}'.format(part, title))
                 file = max(files)
-                df = pd.read_csv('spider/data/{}/{}/{}'.format(part, title, file), sep ='\t')
+                df = pd.read_csv('spider/data/{}/{}/{}'.format(part, title, file), sep ='\t').fillna('')
                 if 'hot_title_for' in df:
                     result[part][worker_dict[title]] = df[["hot_title", "url", "hot_title_for"]].values.tolist()
                 else:
@@ -293,4 +293,4 @@ def zero_label():
 # def index():
 #     return render_template('main_page.html')
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5002, debug=True)
+    app.run(host='0.0.0.0', port=1234, debug=True)

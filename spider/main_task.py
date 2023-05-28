@@ -35,8 +35,8 @@ def run_spider(date, hour, part):
                     df['hot_rank'] = df['hot_rank'].astype(int)
                     df = df.sort_values('hot_rank').drop_duplicates()
                 df = df.drop_duplicates(subset = ['hot_title'], keep = 'first')
-
-
+                if 'hot_title_for' in df:
+                    df.loc[df['hot_title'] == '', 'hot_title'] = df['hot_title_for']
 
                 df.to_csv('{}/{}_{}.csv'.format(tgt_dir, date, hour), index=False, sep='\t')
 
@@ -51,25 +51,22 @@ if __name__ == '__main__':
     run_spider(date, hour, 'foreign_news')
     run_spider(date, hour, 'foreign_platform')
 
-    # last_label = ''
-    # hour_time = 0
-    # min_time = 0
-    # while True:
-    #
-    #
-    #
-    #         date = str(datetime.now())[:10]
-    #         hour = datetime.now().hour
-    #         minute = datetime.now().minute
-    #         t_label = '{}_{}'.format(date, hour)
-    #         if min_time >= 60:
-    #             if t_label != last_label:
-    #                 run_spider(date, hour, part)
-    #         time.sleep(60 * 60 )
-    #         last_label = t_label
-    #         break
-
-
-
-
+    min_num = 0
+    hour_num = 0
+    while True:
+        # 60 分钟一次， domestic_platform
+        date = str(datetime.now())[:10]
+        hour = datetime.now().hour
+        minute = datetime.now().minute
+        if min_num == 60:
+            run_spider(date, hour, 'domestic_platform')
+            min_num = 0
+        if hour_num == 12:
+            for part in ['domestic_news', 'foreign_news', 'foreign_platform']:
+                run_spider(date, hour, part)
+            hour_num = 0
+        time.sleep(60)
+        min_num += 1
+        if min_num == 60:
+            hour_num += 1
 

@@ -52,7 +52,7 @@ def get_info():
             for j, result in enumerate(samples):
                 url = result.get_attribute('href')
                 text = result.text
-                if url is not None and text is not None and 'http' in url and len(text) > 4:
+                if url is not None and text is not None and 'http' in url and len(text) > 11:
                     print(text + '\t' + url)
                     sample = {'hot_title': text, 'url': url}
                     hot_list.append(sample)
@@ -71,7 +71,7 @@ def get_info():
                 for j, result in enumerate(samples):
                     url = result.get_attribute('href')
                     text = result.text
-                    if url is not None and text is not None and 'http' in url and len(text) > 4:
+                    if url is not None and text is not None and 'http' in url and len(text) > 11:
                         print(text + '\t' + url)
                         sample = {'hot_title': text, 'url': url}
                         hot_list.append(sample)
