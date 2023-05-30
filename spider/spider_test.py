@@ -42,8 +42,6 @@ def run_spider(date, hour, part):
                 for i in range(5):
                     try:
                         result = fun()
-                        if len(result) == 0:
-                            raise NameError('空 result')
                         break
                     except Exception as ex:
                         print('出现异常\n{}'.format(ex))
@@ -72,31 +70,18 @@ def run_spider(date, hour, part):
 
 
 if __name__ == '__main__':
-
-    date = str(datetime.now())[:10]
-    hour = datetime.now().hour
-    minute = datetime.now().minute
-    # run_spider(date, hour, 'domestic_news')
-    # run_spider(date, hour, 'domestic_platform')
-    # run_spider(date, hour, 'foreign_news')
-    run_spider(date, hour, 'foreign_platform')
-
-    min_num = 0
-    hour_num = 0
-    while True:
-        # 60 分钟一次， domestic_platform
-        date = str(datetime.now())[:10]
-        hour = datetime.now().hour
-        minute = datetime.now().minute
-        if min_num == 60:
-            run_spider(date, hour, 'domestic_platform')
-            min_num = 0
-        if hour_num == 12:
-            for part in ['domestic_news', 'foreign_news', 'foreign_platform']:
-                run_spider(date, hour, part)
-            hour_num = 0
-        time.sleep(60)
-        min_num += 1
-        if min_num == 60:
-            hour_num += 1
-
+    part = 'foreign_platform'
+    file = 'google_trends_TW.py'
+    module_name = file[:-3]
+    fun_name = 'get_info'
+    module = importlib.import_module('workers.{}.{}'.format(part, module_name))
+    fun = getattr(module, fun_name)
+    for i in range(5):
+        try:
+            result = fun()
+            break
+        except Exception as ex:
+            print('出现异常\n{}'.format(ex))
+            result = None
+    x=1
+    # 保存在 data/{key}/timestamp.csv

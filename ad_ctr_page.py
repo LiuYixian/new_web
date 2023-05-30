@@ -21,11 +21,16 @@ def web_show_api():
             try:
                 files = os.listdir('spider/data/{}/{}'.format(part, title))
                 file = max(files)
+                date_tag = file[:-4]
+                date = date_tag[:10]
+                hour = date_tag[11:]
+                date_tag = '{}, {}时'.format(date, hour)
                 df = pd.read_csv('spider/data/{}/{}/{}'.format(part, title, file), sep ='\t').fillna('')
+                f_title = worker_dict[title] + "({})".format(date_tag)
                 if 'hot_title_for' in df:
-                    result[part][worker_dict[title]] = df[["hot_title", "url", "hot_title_for"]].values.tolist()
+                    result[part][f_title] = df[["hot_title", "url", "hot_title_for"]].values.tolist()
                 else:
-                    result[part][worker_dict[title]] = df[["hot_title", "url"]].values.tolist()
+                    result[part][f_title] = df[["hot_title", "url"]].values.tolist()
             except:
                 pass
     return json.dumps(result)

@@ -32,7 +32,7 @@ def get_info():
     hot_list = []
     nums = 0
     for i in range(1):
-        print('第{}轮'.format(i))
+        # print('第{}轮'.format(i))
         output_tag = ['body > div.main > div.sp_bg.cf',
                       '#rm_pljd > div.col.col-1.fl',
                       '#rm_pljd > div.col.col-2.fr',
@@ -53,11 +53,11 @@ def get_info():
                 url = result.get_attribute('href')
                 text = result.text
                 if url is not None and text is not None and 'http' in url and len(text) > 11:
-                    print(text + '\t' + url)
+                    # print(text + '\t' + url)
                     sample = {'hot_title': text, 'url': url}
                     hot_list.append(sample)
                     nums+=1
-            print('------------')
+            # print('------------')
             x = 1
 
         for tag in id_tag:
@@ -72,11 +72,11 @@ def get_info():
                     url = result.get_attribute('href')
                     text = result.text
                     if url is not None and text is not None and 'http' in url and len(text) > 11:
-                        print(text + '\t' + url)
+                        # print(text + '\t' + url)
                         sample = {'hot_title': text, 'url': url}
                         hot_list.append(sample)
                         nums += 1
-                print('-----------------')
+                # print('-----------------')
             except:
                 print('错误tag {}'.format(tag))
                 pass

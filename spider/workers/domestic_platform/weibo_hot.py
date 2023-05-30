@@ -32,7 +32,7 @@ def get_info():
     #scroller > div.vue-recycle-scroller__item-wrapper > div:nth-child(1) > div > div > div > div > div
     hot_list = []
     for i in range(10):
-        print('第{}轮'.format(i))
+        # print('第{}轮'.format(i))
         results = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, 'div.vue-recycle-scroller__item-view')))
         results = browser.find_elements('css selector', 'div.vue-recycle-scroller__item-view')
 
@@ -50,14 +50,14 @@ def get_info():
                 hot_score = text_split[-1]
                 sample = {'hot_rank': hot_rank, 'hot_title': hot_title, 'hot_score': hot_score, 'url': url}
                 hot_list.append(sample)
-                print(hot_title)
+                # print(hot_title)
             else:
                 # 置顶热点
                 hot_rank = 0
                 hot_title = text_split[0]
                 sample = {'hot_rank': '0', 'hot_title': hot_title, 'hot_score': '0', 'url': url}
                 hot_list.append(sample)
-        print('------------------------')
+        # print('------------------------')
         if len(hot_list) >= 51:
             break
         # 滚动

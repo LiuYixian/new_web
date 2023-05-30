@@ -5,12 +5,17 @@ batch = 20
 def translation_detail_to_chinese(hot_list):
     tran_result = []
     foreign = []
+    # zh_texts = ''
     for a in hot_list:
         foreign.append(a['hot_title_for'])
         if len(foreign) >= batch:
-            zh_text = translate('\n\n'.join(foreign))
-            zh_text = zh_text.replace('\n\n', '\n')
-            zh_texts = zh_text.split('\n')
+            for i in range(3):
+                zh_text = translate('\n\n'.join(foreign))
+                zh_text = zh_text.replace('\n\n', '\n').replace('\n\n', '\n')
+                zh_texts = zh_text.split('\n')
+                zh_texts = [a for a in zh_texts if a.strip() != '']
+                if len(zh_texts) >= batch:
+                    break
             if len(zh_texts) == batch:
                 tran_result.extend(zh_texts)
             else:
@@ -20,11 +25,15 @@ def translation_detail_to_chinese(hot_list):
                     zh_texts = zh_texts + [''] * (batch - len(zh_texts))
                 tran_result.extend(zh_texts)
             foreign = []
-    if len(zh_texts) > 0:
-        zh_text = translate('\n\n'.join(foreign))
+    if len(foreign) > 0:
         ori_len = len(foreign)
-        zh_text = zh_text.replace('\n\n', '\n')
-        zh_texts = zh_text.split('\n')
+        for i in range(3):
+            zh_text = translate('\n\n'.join(foreign))
+            zh_text = zh_text.replace('\n\n', '\n').replace('\n\n', '\n')
+            zh_texts = zh_text.split('\n')
+            zh_texts = [a for a in zh_texts if a.strip() != '']
+            if len(zh_texts) >= ori_len:
+                break
         if len(zh_texts) == ori_len:
             tran_result.extend(zh_texts)
         else:

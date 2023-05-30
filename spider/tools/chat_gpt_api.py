@@ -1,11 +1,12 @@
 import time
 import json
 import requests
+from flask import Response, stream_with_context
 
 ## chatgpt api 初始化
 headers = {
     "Content-Type": "application/json",
-    "Authorization": "Bearer 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",
+    "Authorization": "Bearer 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",
   }
 
 time_sleep = 20
@@ -97,3 +98,11 @@ def generate_reply(message, stream=False):
         return Response(stream_with_context(my_generate_stream()), mimetype='text/plain')
     else:
         return my_generate()
+
+if __name__ == '__main__':
+    message = [
+        {'role': 'user', 'content': '你好'}
+    ]
+
+    result = generate_reply(message, stream=False)
+    print(result)

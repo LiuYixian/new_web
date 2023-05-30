@@ -32,7 +32,7 @@ def get_info():
     hot_list = []
     titles = set()
     for i in range(1):
-        print('第{}轮'.format(i))
+        # print('第{}轮'.format(i))
         # output_tag = ['body > div.wrap > div.wrapBg > div > div.wrapCon']
         id_tag = []
         output_tag = ['div.container']
@@ -52,10 +52,10 @@ def get_info():
 
                 if url is not None and text is not None and 'http' in url and len(text) > 9 and text not in titles:
                     titles.add(text)
-                    print(text)
+                    # print(text)
                     sample = {'hot_title_for': text, 'url': url}
                     hot_list.append(sample)
-            print('------------')
+            # print('------------')
             x = 1
 
         for tag in id_tag:
@@ -70,10 +70,10 @@ def get_info():
                     url = result.get_attribute('href')
                     text = result.text.replace('\n', ' ')
                     if url is not None and text is not None and 'http' in url and len(text.split(' ')) > 9:
-                        print(text + '\t' + url)
+                        # print(text + '\t' + url)
                         sample = {'hot_title_for': text, 'url': url}
                         hot_list.append(sample)
-                print('-----------------')
+                # print('-----------------')
             except:
                 print('错误tag {}'.format(tag))
                 pass

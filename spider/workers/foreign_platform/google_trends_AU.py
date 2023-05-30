@@ -32,7 +32,7 @@ def get_info(geo = "AU"):
     #scroller > div.vue-recycle-scroller__item-wrapper > div:nth-child(1) > div > div > div > div > div
     hot_list = []
     for i in range(1):
-        print('第{}轮'.format(i))
+        # print('第{}轮'.format(i))
         # output_tag = ['body > div.wrap > div.wrapBg > div > div.wrapCon']
         id_tag = []
         output_tag = ['body > div.trends-wrapper > div:nth-child(2) > div > div.feed-content > div > div.generic-container-wrapper > ng-include > div > div > div']
