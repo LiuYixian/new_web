@@ -73,13 +73,16 @@ def run_spider(date, hour, part):
 
 if __name__ == '__main__':
 
+
     date = str(datetime.now())[:10]
     hour = datetime.now().hour
     minute = datetime.now().minute
-    # run_spider(date, hour, 'domestic_news')
-    # run_spider(date, hour, 'domestic_platform')
-    # run_spider(date, hour, 'foreign_news')
+    run_spider(date, hour, 'domestic_news')
+    run_spider(date, hour, 'domestic_platform')
+    run_spider(date, hour, 'foreign_news')
     run_spider(date, hour, 'foreign_platform')
+    run_spider(date, hour, 'game_webs')
+    run_spider(date, hour, 'foreign_game_webs')
 
     min_num = 0
     hour_num = 0
@@ -92,7 +95,7 @@ if __name__ == '__main__':
             run_spider(date, hour, 'domestic_platform')
             min_num = 0
         if hour_num == 12:
-            for part in ['domestic_news', 'foreign_news', 'foreign_platform']:
+            for part in ['domestic_news', 'foreign_news', 'foreign_platform', 'game_webs', 'foreign_game_webs']:
                 run_spider(date, hour, part)
             hour_num = 0
         time.sleep(60)

@@ -54,27 +54,6 @@ def get_info():
             # print('------------')
             x = 1
 
-        for tag in id_tag:
-            tag = tag.strip('#')
-            try:
-                results = wait.until(EC.presence_of_all_elements_located((By.ID, tag)))
-                result = browser.find_element('id', tag)
-                samples = result.find_elements('css selector', 'a')
-                # result = results[0]
-                # results = result.find_elements('css selector', 'a')
-                for j, result in enumerate(samples):
-                    url = result.get_attribute('href')
-                    text = result.text
-                    if url is not None and text is not None and 'http' in url and len(text) > 11:
-                        # print(text + '\t' + url)
-                        sample = {'hot_title': text, 'url': url}
-                        hot_list.append(sample)
-                        nums += 1
-                # print('-----------------')
-            except:
-                print('错误tag {}'.format(tag))
-                pass
-            x=1
     browser.quit()
     hot_list = hot_list[:60]
     return hot_list

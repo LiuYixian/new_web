@@ -2,5 +2,7 @@
         "domestic_platform",
         "domestic_news",
         "foreign_news",
-        "foreign_platform"
+        "foreign_platform",
+        "game_webs",
+        "foreign_game_webs"
 ]

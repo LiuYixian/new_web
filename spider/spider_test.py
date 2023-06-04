@@ -70,8 +70,8 @@ def run_spider(date, hour, part):
 
 
 if __name__ == '__main__':
-    part = 'foreign_platform'
-    file = 'google_trends_TW.py'
+    part = 'game_webs'
+    file = 'youminyejie.py'
     module_name = file[:-3]
     fun_name = 'get_info'
     module = importlib.import_module('workers.{}.{}'.format(part, module_name))
